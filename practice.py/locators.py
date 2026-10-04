@@ -190,5 +190,109 @@ for w in c:
     if w!=parent:
         driver.switch_to.window(w)
         print(driver.title)'''
+'''import pytest
+from selenium.webdriver import Chrome
+from selenium.webdriver import ChromeOptions
+from selenium.webdriver.common.by import By
+from time import sleep
+o=ChromeOptions()
+o.add_experimental_option("detach",True)
+@pytest.mark.parametrize("name,email,pwd,mob",[['amith','amithammu1122@gmail.com','Amith@123','9988776655'],['ganesh','gavuganesh12@gmail.com','Gan#@4546','9898966778']])
+def test_naukri_registration(name,email,pwd,mob):
+    driver=Chrome(options=o)
+    driver.get("https://www.naukri.com")
+    driver.maximize_window()
+    driver.implicitly_wait(10)
+    driver.find_element("xpath","//a[.='Register']").click()
+    driver.find_element(By.ID,'name').send_keys(name)
+    driver.find_element(By.ID,'email').send_keys(email)
+    driver.find_element(By.ID,'password').send_keys(pwd)
+    driver.find_element(By.ID,'mobile').send_keys(mob)
+    driver.find_element("xpath","(//h2[@class='main-3'])[2]").click()
+    driver.find_element("xpath","//i[@class='ico resman-icon resman-icon-check-box']").click()
+    driver.find_element("xpath","//button[.='Register now']").click()'''
+
+'''import pytest
+from selenium.webdriver import Chrome
+from selenium.webdriver import ChromeOptions
+from selenium.webdriver.common.by import By
+from time import sleep
+o=ChromeOptions()
+o.add_experimental_option("detach",True)
+driver = Chrome(options=o)
+@pytest.mark.parametrize("un,pwd",[["venkatsoumith","venky@104"],["mahesh","mahesh@12123"],["kumar","kumar@12334"]])
+def test_login(un,pwd):
+    driver.get("https://www.instagram.com/")
+    driver.maximize_window()
+    driver.implicitly_wait(10)
+    driver.find_element(By.NAME,'email').send_keys(un)
+    driver.find_element(By.NAME,'pass').send_keys(pwd)
+    driver.find_element("xpath","(//div[.='Log in'])[1]").click()'''
+
+'''import pytest
+from selenium.webdriver import Chrome
+from selenium.webdriver import ChromeOptions
+from selenium.webdriver.common.by import By
+from time import sleep
+o=ChromeOptions()
+o.add_experimental_option("detach",True)
+@pytest.fixture
+def launch():
+    driver = Chrome(options=o)
+    driver.get("https://www.wikipedia.org/")
+    driver.maximize_window()
+    driver.implicitly_wait(10)
+    yield driver
+    driver.quit()
+def test_tc1(launch):
+    driver=launch
+    driver.find_element("xpath","//strong[.='English']").click()
+    driver.find_element("xpath","(//span[.='View history'])[1]").click()
+    driver.find_element("xpath","//span[.='Talk']").click()
+def test_tc2(launch):
+    driver=launch
+    driver.find_element("xpath","//i[@class='sprite svg-search-icon']").click()
+    driver.find_element("xpath","(//span[.='Log in'])[1]").click()
+    driver.find_element(By.ID,'wpName1').send_keys("venky@104")
+    driver.find_element(By.ID,'wpPassword1').send_keys("12345")
+    driver.find_element("xpath","//button[.='Log in']").click()
+def test_tc3(launch):
+    driver=launch
+    driver.find_element("xpath","//strong[.='English']").click()
+    driver.find_element("xpath","(//span[.='Create account'])[1]").click()
+    driver.find_element(By.ID,'wpName2').send_keys("venky@104")
+    driver.find_element(By.ID,'wpPassword2').send_keys("12345")
+    driver.find_element(By.ID,'wpRetype').send_keys("12345")
+    driver.find_element(By.ID,'wpEmail').send_keys("chvs@gmail.com")
+    driver.find_element("xpath","//button[.='Create your account']").click()'''
+
+from selenium.webdriver import Chrome
+from selenium.webdriver import ChromeOptions
+from selenium.webdriver.common.by import By
+from time import sleep
+o=ChromeOptions()
+o.add_experimental_option("detach",True)
+driver = Chrome(options=o)
+driver.get("https://demowebshop.tricentis.com/")
+driver.maximize_window()
+driver.find_element("xpath","//a[.='Register']").click()
+sleep(2)
+driver.find_element("id","gender-male").click()
+driver.find_element("id","FirstName").send_keys("salman")
+driver.find_element("id","LastName").send_keys("shaik")
+driver.find_element("name","Email").send_keys("salmanshaik@gmail.com")
+driver.find_element("id","Password").send_keys("123456")
+driver.find_element("id","ConfirmPassword").send_keys("123456")
+driver.find_element("id","register-button").click()
+driver.quit()
+
+
+
+
+
+
+
+
+
 
 
